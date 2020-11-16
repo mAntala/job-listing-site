@@ -1,16 +1,16 @@
 <template>
-    <button class="filters-clear" @click="clearAllFilters">
+    <button class="filters-clear" @click="removeAllFilters">
         Clear
     </button>
 </template>
 
 <script>
 export default {
-    name: 'filters-clear',
-    emits: ['clear-all'],
+    name: 'filters-remove-all',
+    emits: ['remove-all-filters'],
     methods: {
-        clearAllFilters() {
-            this.$emit('clear-all');
+        removeAllFilters() {
+            this.$emit('remove-all-filters')
         }
     }
 }

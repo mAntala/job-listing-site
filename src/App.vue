@@ -13,6 +13,7 @@ body {
   font-family: 'Spartan', sans-serif;
   font-weight: 500;
   font-size: 16px;
+  background-color: hsl(180, 31%, 95%);
 }
 
 button {

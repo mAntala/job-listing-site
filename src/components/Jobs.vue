@@ -26,12 +26,14 @@ export default {
         const filters = reactive(props.activeFilters)
         const jobs = ref([])
 
+        // Getting jobs from DB
         const jobsRequest = async () => {
             const req = await fetch('http://localhost:3000/jobs')
                 .then(data => data.json())
             jobs.value = await req
         }
 
+        // Filter out jobs based on languages OR role OR level OR tools
         const filteredJobs = computed(() => {
             // If there is no filter selected, return all jobs
             if(filters.length === 0) { return jobs.value }
@@ -44,9 +46,7 @@ export default {
         onMounted(jobsRequest)
 
         return {
-            jobs,
             filters,
-            jobsRequest,
             filteredJobs
         }
     },

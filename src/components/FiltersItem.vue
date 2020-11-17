@@ -29,22 +29,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.filters-items {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-}
-
 .filter-item {
     position: relative;
     display: flex;
     align-items: center;
     margin-right: 0.5rem;
 
+    @media screen and (max-width: 767px) {
+        margin-bottom: 0.5rem;
+    }
+
     &:last-of-type {
         margin-right: 0;
+
+        @media screen and (max-width: 767px) {
+            margin-bottom: 0;
+        }
     }
 
     &__content {

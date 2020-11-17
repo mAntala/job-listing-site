@@ -43,5 +43,6 @@ export default {
 .home {
     max-width: 1100px;
     margin: 0 auto;
+    padding-top: 2rem;
 }
 </style>

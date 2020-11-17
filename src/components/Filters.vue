@@ -1,5 +1,5 @@
 <template>
-    <section v-if="filters.length > 0" class="filters">
+    <section :class="{ 'filters--hidden': filters.length === 0 }" class="filters">
         <section class="filters__container">
             <filters-item v-for="(filter, index) in filters" :key="index" :filterName="filter" @remove-filter="removeFilter($event)" />
         </section>
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import FiltersItem from '@/components/FiltersItem'
 import FiltersRemoveAll from '@/components/FiltersRemoveAll'
 
@@ -29,10 +29,6 @@ export default {
     },
     setup(props) {
         const filters = ref(props.activeFilters)
-
-        watch(filters, () => {
-            console.log('New filters are ' + filters.value)
-        });
 
         return {
             filters
@@ -57,6 +53,23 @@ export default {
     display: flex;
     justify-content: space-between;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    margin: 0 0 2rem;
+    transition: all .15s ease-in-out;
+
+    &--hidden {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 2rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+        width: calc(100% - 6rem);
+        margin: 0 auto 3rem auto;
+    }
 
     &__container {
         display: flex;

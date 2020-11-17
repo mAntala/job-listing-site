@@ -33,8 +33,16 @@ export default {
     margin-right: 0.75rem;
     cursor: pointer;
 
+    @media screen and (max-width: 767px) {
+        margin-bottom: 0.75rem;
+    }
+
     &:last-of-type {
         margin-right: 0;
+
+        @media screen and (max-width: 767px) {
+            margin-bottom: 0;
+        }
     }
 }
 </style>

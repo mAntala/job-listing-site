@@ -50,6 +50,7 @@ export default {
     setup(props) {
         let companyLogo = ref([])
 
+        // Get image from @/assets/logo dir
         onMounted(() => companyLogo.value = require(`@/assets/logo/${props.job.logo}`))
 
         return {
@@ -75,6 +76,13 @@ export default {
     position: relative;
     background-color: #FFF;
 
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+        width: calc(100% - 6rem);
+        margin: 0 auto 2.5rem auto;
+        padding: 2rem 2rem 1.5rem;
+    }
+
     &--featured {
         &:before {
             content: '';
@@ -96,11 +104,27 @@ export default {
     &__logo {
         margin-right: 1.5rem;
         width: 88px;
+
+        @media screen and (max-width: 767px) {
+            margin: 0;
+            position: absolute;
+            top: -22px;
+            left: 2rem;
+
+            & > img {
+                width: 44px;
+            }
+        }
     }
 
-    &__content {}
-
-    &__company {}
+    &__content {
+        @media screen and (max-width: 767px) {
+            flex: 1 1 100%;
+            border-bottom: 1px solid hsl(180, 8%, 52%);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
 
     &__company-name {
         font-size: 0.75rem;
@@ -180,6 +204,12 @@ export default {
         display: flex;
         justify-content: flex-end;
         flex: 1 0 auto;
+
+        @media screen and (max-width: 767px) {
+            flex-wrap: wrap;
+            flex: 1 1 100%;
+            justify-content: flex-start;
+        }
     }
 }
 </style>

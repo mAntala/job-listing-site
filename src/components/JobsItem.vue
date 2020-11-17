@@ -25,6 +25,7 @@
         <footer class="job-item__languages">
             <jobs-language :language="job.role" @select-filter="selectFilter($event)" />
             <jobs-language :language="job.level" @select-filter="selectFilter($event)" />
+            <jobs-language v-for="(tool, index) in job.tools" :key="index" :language="tool" @select-filter="selectFilter($event)" />
             <jobs-language v-for="(language, index) in job.languages" :key="index" :language="language" @select-filter="selectFilter($event)" />
         </footer>
     </article>
